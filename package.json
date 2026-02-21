@@ -1,6 +1,6 @@
 {
     "name": "pict-section-code",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "Pict code editor section wrapping CodeJar",
     "main": "source/Pict-Section-Code.js",
     "scripts": {
