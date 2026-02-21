@@ -57,7 +57,7 @@ module.exports = (
 	// CSS for the code editor
 	"CSS": `.pict-code-editor-wrap
 {
-	position: relative;
+	display: flex;
 	font-family: 'SFMono-Regular', 'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 	font-size: 14px;
 	line-height: 1.5;
@@ -67,10 +67,10 @@ module.exports = (
 }
 .pict-code-editor-wrap .pict-code-line-numbers
 {
-	position: absolute;
-	top: 0;
+	position: sticky;
 	left: 0;
 	width: 40px;
+	min-width: 40px;
 	padding: 10px 0;
 	text-align: right;
 	background: #F5F5F5;
@@ -81,6 +81,7 @@ module.exports = (
 	user-select: none;
 	pointer-events: none;
 	box-sizing: border-box;
+	z-index: 1;
 }
 .pict-code-editor-wrap .pict-code-line-numbers span
 {
@@ -90,21 +91,23 @@ module.exports = (
 .pict-code-editor-wrap .pict-code-editor
 {
 	margin: 0;
-	padding: 10px 10px 10px 48px;
+	padding: 10px 10px 10px 8px;
 	min-height: 100px;
+	flex: 1;
+	min-width: 0;
 	outline: none;
 	tab-size: 4;
 	white-space: pre;
 	overflow-wrap: normal;
-	overflow-x: auto;
 	color: #383A42;
 	background: #FAFAFA;
 	caret-color: #526FFF;
-	border-radius: 4px;
+	border-radius: 0 4px 4px 0;
 }
 .pict-code-editor-wrap .pict-code-editor.pict-code-no-line-numbers
 {
 	padding-left: 10px;
+	border-radius: 4px;
 }
 .pict-code-editor-wrap .pict-code-editor .keyword { color: #A626A4; }
 .pict-code-editor-wrap .pict-code-editor .string { color: #50A14F; }
