@@ -143,6 +143,12 @@ class PictSectionCode extends libPictViewClass
 		let tmpEditorElement = this._editorElement;
 		this.codeJar = this._codeJarPrototype(tmpEditorElement, this._highlightFunction, tmpCodeJarOptions);
 
+		// CodeJar forces white-space:pre-wrap and overflow-wrap:break-word
+		// via inline styles, which causes line wrapping that breaks the
+		// line-number alignment.  Override back to non-wrapping so the
+		// wrap container scrolls horizontally instead.
+		this._resetEditorWrapStyles();
+
 		// Set the initial code
 		if (tmpCode)
 		{
@@ -221,6 +227,24 @@ class PictSectionCode extends libPictViewClass
 		}
 
 		this._lineNumbersElement.innerHTML = tmpHTML;
+	}
+
+	/**
+	 * Reset inline styles that CodeJar sets on the editor element.
+	 *
+	 * CodeJar forces white-space:pre-wrap and overflow-wrap:break-word so
+	 * long lines wrap visually.  That breaks line-number alignment because
+	 * each wrapped visual row is not a logical line.  Resetting to pre /
+	 * normal makes the outer .pict-code-editor-wrap scroll horizontally.
+	 */
+	_resetEditorWrapStyles()
+	{
+		if (!this._editorElement)
+		{
+			return;
+		}
+		this._editorElement.style.whiteSpace = 'pre';
+		this._editorElement.style.overflowWrap = 'normal';
 	}
 
 	/**
@@ -350,6 +374,7 @@ class PictSectionCode extends libPictViewClass
 				catchTab: this.options.CatchTab,
 				addClosing: this.options.AddClosing
 			});
+			this._resetEditorWrapStyles();
 			this.codeJar.updateCode(tmpCode);
 			this.codeJar.onUpdate((pCode) =>
 			{
@@ -384,6 +409,7 @@ class PictSectionCode extends libPictViewClass
 				catchTab: this.options.CatchTab,
 				addClosing: this.options.AddClosing
 			});
+			this._resetEditorWrapStyles();
 			this.codeJar.updateCode(tmpCode);
 			this.codeJar.onUpdate((pCode) =>
 			{
