@@ -1,6 +1,6 @@
 {
     "name": "pict-section-code",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Pict code editor section wrapping CodeJar",
     "main": "source/Pict-Section-Code.js",
     "scripts": {
@@ -48,6 +48,6 @@
         ]
     },
     "dependencies": {
-        "pict-view": "^1.0.66"
+        "pict-view": "^1.0.67"
     }
 }
