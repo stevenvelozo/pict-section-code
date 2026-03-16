@@ -63,12 +63,10 @@ module.exports = (
 	line-height: 1.5;
 	border: 1px solid #D0D0D0;
 	border-radius: 4px;
-	overflow: auto;
+	overflow: hidden;
 }
 .pict-code-editor-wrap .pict-code-line-numbers
 {
-	position: sticky;
-	left: 0;
 	width: 40px;
 	min-width: 40px;
 	padding: 10px 0;
@@ -81,7 +79,6 @@ module.exports = (
 	user-select: none;
 	pointer-events: none;
 	box-sizing: border-box;
-	z-index: 1;
 }
 .pict-code-editor-wrap .pict-code-line-numbers span
 {
