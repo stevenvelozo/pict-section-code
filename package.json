@@ -27,7 +27,7 @@
         "browser-env": "^3.3.0",
         "codejar": "^4.3.0",
         "pict": "^1.0.350",
-        "quackage": "^1.0.59"
+        "quackage": "^1.1.0"
     },
     "mocha": {
         "diff": true,
